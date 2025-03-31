@@ -52,41 +52,6 @@ Output: Aligned counts in data/processed/counts.txt.
 
 2. Perform DEG Analysis
 
-Open the Jupyter Notebook to analyze results:
-
-bash
-Copy
-jupyter notebook scripts/analyze_deg.ipynb
-Output:
-
-DEG tables in output/deg_results.csv.
-Plots in output/figures/ (volcano, heatmap, etc.).
-3. Query the Database
-
-Use Python to explore results:
-
-python
-Copy
-import sqlite3
-conn = sqlite3.connect("data/parkinsons.db")
-pd.read_sql("SELECT * FROM deg_results WHERE adj_pval < 0.05", conn)
-📂 File Structure
-
-bash
-Copy
-.
-├── data/               # Input/output data
-├── scripts/           # Pipeline and analysis code
-├── docs/              # Documentation
-├── output/            # Results (DEGs, plots)
-└── references/        # Genome indices/annotations
-🔍 Example Results
-
-Gene ID	log2FC	Adj. p-value	Known PD Link?
-SNCA	+1.8	0.003	✅ (α-synuclein)
-MAPT	-1.2	0.01	✅ (Tau protein)
-Volcano Plot Differentially expressed genes (|log2FC| > 1, adj-p < 0.05).
-
 📜 License
 
 This project is licensed under the MIT License. See LICENSE for details.
